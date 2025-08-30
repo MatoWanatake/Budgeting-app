@@ -1,0 +1,10 @@
+ CREATE TABLE IF NOT EXISTS expenses (
+   id SERIAL PRIMARY KEY,
+   name VARCHAR(255) NOT NULL,
+   amount FLOAT NOT NULL,
+   date DATE NOT NULL,
+   "budgetId" INTEGER NOT NULL REFERENCES budgets(id) ON DELETE CASCADE,
+   "categoryId" INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+   "createdAt" TIMESTAMP DEFAULT NOW(),
+   "updatedAt" TIMESTAMP DEFAULT NOW()
+ );

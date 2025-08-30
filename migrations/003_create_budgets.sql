@@ -1,0 +1,8 @@
+ CREATE TABLE IF NOT EXISTS budgets (
+   id SERIAL PRIMARY KEY,
+   name VARCHAR(255) NOT NULL,
+   "totalAmount" FLOAT NOT NULL,
+   "userId" INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+   "createdAt" TIMESTAMP DEFAULT NOW(),
+   "updatedAt" TIMESTAMP DEFAULT NOW()
+ );
